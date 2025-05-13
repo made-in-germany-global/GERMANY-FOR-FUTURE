@@ -1,0 +1,113 @@
+/* Custom Scrollbar Styles */
+/* For Webkit browsers (Chrome, Safari, newer versions of Opera) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B111F;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFFFFF;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffd333;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FFFFFF #0B111F;
+}
+
+/* For Edge and Internet Explorer */
+body {
+  -ms-overflow-style: none;
+}
+
+*::-ms-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-ms-scrollbar-track {
+  background: #0B111F;
+  border-radius: 10px;
+}
+
+*::-ms-scrollbar-thumb {
+  background: #FFFFFF;
+  border-radius: 50px;
+}
+
+/* Specific styling for the slider's scrollable area */
+.custom-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: #FFFFFF #0B111F;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #0B111F;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #FFFFFF;
+  border-radius: 50px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+/* For iOS devices */
+@supports (-webkit-touch-callout: none) {
+  /* CSS for iOS devices */
+  .custom-scrollbar-ios {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+  }
+  
+  .custom-scrollbar-ios::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: #0B111F;
+    z-index: 1;
+  }
+  
+  .custom-scrollbar-ios::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 25%;
+    height: 4px;
+    background: #FFFFFF;
+    border-radius: 50px;
+    z-index: 2;
+    animation: scrollIndicator 2s infinite;
+  }
+  
+  @keyframes scrollIndicator {
+    0% { left: 0; }
+    50% { left: 75%; }
+    100% { left: 0; }
+  }
+}
